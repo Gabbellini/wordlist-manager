@@ -41,7 +41,6 @@ func main() {
 			fmt.Println("Invalid option.")
 		}
 	}
-
 }
 
 func showWordsOnFile(handler TextFileHandler.TextFileHandler) {

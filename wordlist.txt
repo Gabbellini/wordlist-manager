@@ -1,3 +1,3 @@
-first word
-second word
-last word
+first
+second
+last
