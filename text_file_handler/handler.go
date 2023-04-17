@@ -2,6 +2,7 @@ package TextFileHandler
 
 import (
 	"bufio"
+	"errors"
 	"io"
 	"log"
 	"os"
@@ -94,6 +95,10 @@ func (f textFileHandler) RemoveLine(position int) error {
 		return err
 	}
 
+	if position < 0 || position > len(lines)-1 {
+		return errors.New("there isn't word on this position")
+	}
+
 	lines = append(lines[:position], lines[position+1:]...)
 
 	err = os.WriteFile(f.filename, []byte(strings.Join(lines, "\n")), 0666)
@@ -122,6 +127,10 @@ func (f textFileHandler) UpdateLine(position int, newLine string) error {
 	if err != nil {
 		log.Println("[UpdateLine] Error convertFileLinesIntoSlice", err)
 		return err
+	}
+
+	if position < 0 || position > len(lines)-1 {
+		return errors.New("there isn't word on this position")
 	}
 
 	lines[position] = newLine + "\n"

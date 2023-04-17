@@ -79,17 +79,6 @@ func removeWordFromFile(handler TextFileHandler.TextFileHandler) {
 		return
 	}
 
-	Words, err := handler.GetLines()
-	if err != nil {
-		log.Println("[removeWordFromFile] Error GetWords:", err)
-		return
-	}
-
-	if position < 0 || position > len(Words)-1 {
-		fmt.Println("There isn't Word on this position")
-		return
-	}
-
 	err = handler.RemoveLine(position)
 	if err != nil {
 		log.Println("[removeWordFromFile] Error RemoveWord:", err)
@@ -103,17 +92,6 @@ func updateWordOnFile(handler TextFileHandler.TextFileHandler) {
 	_, err := fmt.Scan(&position)
 	if err != nil {
 		log.Println("[updateWordOnFile] Error Scan:", err)
-		return
-	}
-
-	Words, err := handler.GetLines()
-	if err != nil {
-		log.Println("[updateWordOnFile] Error GetWords:", err)
-		return
-	}
-
-	if position < 0 || position > len(Words)-1 {
-		log.Println("There isn't Word on this position.")
 		return
 	}
 
