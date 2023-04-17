@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go-studies/text_file_handler"
 	"log"
+	TextFileHandler "wordlist-manager/text_file_handler"
 )
 
 func main() {
