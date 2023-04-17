@@ -44,13 +44,13 @@ func main() {
 }
 
 func showWordsOnFile(handler TextFileHandler.TextFileHandler) {
-	Words, err := handler.GetLines()
+	words, err := handler.GetLines()
 	if err != nil {
 		log.Println("[showWordsOnFile] Error GetWords", err)
 		return
 	}
 
-	fmt.Println("Words:", Words)
+	fmt.Println("Words:", words)
 }
 
 func addWordToFile(handler TextFileHandler.TextFileHandler) {
